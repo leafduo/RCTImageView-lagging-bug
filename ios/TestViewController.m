@@ -74,12 +74,14 @@
   [super viewWillAppear:animated];
 
   dispatch_async(dispatch_get_main_queue(), ^{
+    // expensive UI-related work
     sleep(1);
   });
 }
 
 - (IBAction)pushViewController:(id)sender {
   UIViewController *viewController = [[UIViewController alloc] init];
+  viewController.view.backgroundColor = [UIColor whiteColor];
   [self.navigationController pushViewController:viewController animated:YES];
 }
 
